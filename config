@@ -193,6 +193,7 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 
 no_focus [title="Powiadomienie w aplikacji Microsoft Teams"] 
 no_focus [class="*Microsoft Teams*"] 
+no_focus [class="microsoft teams - preview"] 
 for_window [title="Powiadomienie w aplikacji Microsoft Teams"] floating enable 
 for_window [title="Powiadomienie w aplikacji Microsoft Teams"] move position 1600 50
 
