@@ -1,6 +1,10 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -11,6 +15,10 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'junegunn/fzf.vim'
+Plugin 'preservim/nerdtree'
+Plugin 'buoto/gotests-vim'
+Plugin 'preservim/nerdcommenter'
+Plugin 'tpope/vim-fugitive'
 
 Plugin 'dracula/vim', { 'name': 'dracula' }
 
@@ -32,3 +40,45 @@ filetype plugin indent on    " required
 " If installed using git
 set rtp+=~/.fzf
 
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+
+set relativenumber number
+
+map <c-s-n> :Files<CR>
+map <c-s-f> :Rg<CR>
+map <c-s-j> :GoTest<CR>
+map <c-a-l> :GoFmt<CR>
+map <c-a-o> :GoImports<CR>
+map <C-b> :GoDef<CR>
+map <C-S-F9> :GoBuild<CR>
+map <C-F12> :GoDecls<CR>
+map <C-F8> :DlvToggleBreakpoint<CR>
+map <C-F5> :DlvTest<CR>
+nmap <silent>gr <Plug>(coc-references)
+nmap <silent>gi <Plug>(coc-implementation)
+map <C-n> :NERDTreeToggle<CR>
+map <A-1> :NERDTree %<CR>
+
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+colorscheme dracula
+
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
+
+" Make sure you use single quotes
+
+Plug 'sebdah/vim-delve'
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+
+
+" Initialize plugin system
+call plug#end()
