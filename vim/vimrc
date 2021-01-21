@@ -57,8 +57,35 @@ map <C-S-F9> :GoBuild<CR>
 map <C-F12> :GoDecls<CR>
 map <C-F8> :DlvToggleBreakpoint<CR>
 map <C-F5> :DlvTest<CR>
-nmap <silent>gr <Plug>(coc-references)
+
+autocmd FileType go map<leader>r :!go run %
+
+" GoTo code navigation.
+nmap <silent>gd <Plug>(coc-definition)
+nmap <silent>gy <Plug>(coc-type-definition)
 nmap <silent>gi <Plug>(coc-implementation)
+nmap <silent>gr <Plug>(coc-references)
+
+nmap <silent>gv :Vista!!<CR>
+
+" Mappings for CoCList
+" Show all diagnostics.
+nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
+" Manage extensions.
+nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
+" Show commands.
+nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
+" Find symbol of current document.
+nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
+" Search workspace symbols.
+nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
+" Resume latest coc list.
+nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
 map <C-n> :NERDTreeToggle<CR>
 map <A-1> :NERDTree %<CR>
 
@@ -78,6 +105,15 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'sebdah/vim-delve'
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+Plug 'tpope/vim-fugitive'
+Plug 'liuchengxu/vista.vim'
+Plug 'vim-airline/vim-airline'
+
+if has('nvim') || has('patch-8.0.902')
+  Plug 'mhinz/vim-signify'
+else
+  Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
+endif
 
 
 " Initialize plugin system
