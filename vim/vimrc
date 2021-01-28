@@ -104,10 +104,11 @@ call plug#begin('~/.vim/plugged')
 " Make sure you use single quotes
 
 Plug 'sebdah/vim-delve'
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': 'yarn install --frozen-lockfile'}
 Plug 'tpope/vim-fugitive'
 Plug 'liuchengxu/vista.vim'
 Plug 'vim-airline/vim-airline'
+Plug 'vimcki/vim-quickfile'
 
 if has('nvim') || has('patch-8.0.902')
   Plug 'mhinz/vim-signify'
@@ -115,6 +116,14 @@ else
   Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
 endif
 
+nnoremap <leader>fm :call QuickFile("makefile")<cr>
+nnoremap <leader>fi :call QuickFile("ci")<cr>
+nnoremap <leader>fc :call QuickFile("config")<cr>
+nnoremap <leader>fb :call QuickFile("build")<cr>
+nnoremap <leader>fo :call QuickFile("models")<cr>
+nnoremap <leader>fr :call QuickFile("readme")<cr>
+nnoremap <leader>fe :call QuickFile("main")<cr>
+nnoremap <leader>fd :call QuickFile("dependencies")<cr>
 
 " Initialize plugin system
 call plug#end()
