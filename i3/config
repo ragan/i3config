@@ -296,6 +296,7 @@ exec xset dpms 0 0 1200
 exec nm-applet
 exec /home/karol/Downloads/jetbrains-toolbox-1.14.5037/jetbrains-toolbox --minimize
 exec pasystray
+exec volumeicon
 
 exec --no-startup-id sh ~/.screenlayout/layout.sh 
 
