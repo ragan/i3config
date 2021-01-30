@@ -71,7 +71,7 @@ URxvt.keysym.C-Up:     perl:font-size:increase
 URxvt.keysym.C-Down:   perl:font-size:decrease
 
 !! Copy Paste & Other Extensions
-URxvt.perl-ext-common: default,matcher,clipboard,url-select,keyboard-select,font-size,tabbed
+URxvt.perl-ext-common: default,matcher,clipboard,url-select,keyboard-select,font-size
 URxvt.clipboard.autocopy: true           
 URxvt.clipboard.copycmd:  xclip -i -selection clipboard
 URxvt.clipboard.pastecmd: xsel
