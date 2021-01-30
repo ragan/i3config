@@ -47,18 +47,12 @@ set smartcase
 
 set relativenumber number
 
-map <c-s-n> :Files<CR>
+map <leader>f :Files<CR>
 map <c-s-f> :Rg<CR>
-map <c-s-j> :GoTest<CR>
-map <c-a-l> :GoFmt<CR>
-map <c-a-o> :GoImports<CR>
 map <C-b> :GoDef<CR>
 map <C-S-F9> :GoBuild<CR>
 map <C-F12> :GoDecls<CR>
 map <C-F8> :DlvToggleBreakpoint<CR>
-map <C-F5> :DlvTest<CR>
-
-autocmd FileType go map<leader>r :!go run %
 
 " GoTo code navigation.
 nmap <silent>gd <Plug>(coc-definition)
@@ -109,6 +103,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'liuchengxu/vista.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vimcki/vim-quickfile'
+Plug 'eliba2/vim-node-inspect'
 
 if has('nvim') || has('patch-8.0.902')
   Plug 'mhinz/vim-signify'
@@ -124,6 +119,11 @@ nnoremap <leader>fo :call QuickFile("models")<cr>
 nnoremap <leader>fr :call QuickFile("readme")<cr>
 nnoremap <leader>fe :call QuickFile("main")<cr>
 nnoremap <leader>fd :call QuickFile("dependencies")<cr>
+
+autocmd FileType javascript map<leader>r :NodeInspectRun<cr>
+autocmd FileType javascript map<leader>s :NodeInspectStop<cr>
+autocmd FileType javascript map<leader>t :NodeInspectToggleBreakpoint<cr>
+autocmd FileType javascript map<leader>d :NodeInspectRemoveAllBreakpoints<cr>
 
 " Initialize plugin system
 call plug#end()
