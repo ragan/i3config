@@ -54,12 +54,6 @@ map <C-S-F9> :GoBuild<CR>
 map <C-F12> :GoDecls<CR>
 map <C-F8> :DlvToggleBreakpoint<CR>
 
-" GoTo code navigation.
-nmap <silent>gd <Plug>(coc-definition)
-nmap <silent>gy <Plug>(coc-type-definition)
-nmap <silent>gi <Plug>(coc-implementation)
-nmap <silent>gr <Plug>(coc-references)
-
 nmap <silent>gv :Vista!!<CR>
 
 " Mappings for CoCList
@@ -99,17 +93,23 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'sebdah/vim-delve'
 Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': 'yarn install --frozen-lockfile'}
-Plug 'tpope/vim-fugitive'
-Plug 'liuchengxu/vista.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vimcki/vim-quickfile'
-Plug 'eliba2/vim-node-inspect'
 
 if has('nvim') || has('patch-8.0.902')
   Plug 'mhinz/vim-signify'
 else
   Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
 endif
+
+" GoTo code navigation.
+nmap <silent>gd <Plug>(coc-definition)
+nmap <silent>gy <Plug>(coc-type-definition)
+nmap <silent>gi <Plug>(coc-implementation)
+nmap <silent>gr <Plug>(coc-references)
+
+Plug 'tpope/vim-fugitive'
+Plug 'liuchengxu/vista.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vimcki/vim-quickfile'
 
 nnoremap <leader>fm :call QuickFile("makefile")<cr>
 nnoremap <leader>fi :call QuickFile("ci")<cr>
@@ -120,10 +120,8 @@ nnoremap <leader>fr :call QuickFile("readme")<cr>
 nnoremap <leader>fe :call QuickFile("main")<cr>
 nnoremap <leader>fd :call QuickFile("dependencies")<cr>
 
-autocmd FileType javascript map<leader>r :NodeInspectRun<cr>
-autocmd FileType javascript map<leader>s :NodeInspectStop<cr>
-autocmd FileType javascript map<leader>t :NodeInspectToggleBreakpoint<cr>
-autocmd FileType javascript map<leader>d :NodeInspectRemoveAllBreakpoints<cr>
+Plug 'eliba2/vim-node-inspect'
+Plug 'othree/yajs.vim'
 
 " Initialize plugin system
 call plug#end()
