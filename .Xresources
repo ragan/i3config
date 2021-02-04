@@ -4,6 +4,9 @@ Xft.rgba:                   rgb
 Xft.hinting:                true
 Xft.hintstyle:              hintslight
 
+URxvt.font:     xft:bitstream vera sans mono:size=14:antialias=true
+URxvt.boldFont: xft:bitstream vera sans mono:bold:size=14:antialias=true
+
 ! special
 *.foreground:   #c7ccd1
 *.background:   #1c2023

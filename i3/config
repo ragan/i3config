@@ -117,7 +117,7 @@ floating_modifier $mod
 bindsym $mod+Return exec urxvt
 
 # kill focused window
-bindsym $mod+q kill
+bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
@@ -295,7 +295,7 @@ exec i3-config-wizard
 exec xset dpms 0 0 1200
 exec nm-applet
 exec /home/karol/Downloads/jetbrains-toolbox-1.14.5037/jetbrains-toolbox --minimize
-exec pasystray
+# exec pasystray
 exec volumeicon
 
 exec --no-startup-id sh ~/.screenlayout/layout.sh 
